@@ -1,13 +1,19 @@
 import React from 'react';
-// import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import routes from './routes/routes';
 
 import './style/style.css';
-import Home from './pages/Home';
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <BrowserRouter>
+        <Switch>
+          {routes.map((route) => {
+            return <Route path={route.path} component={route.component} key={route.path} />;
+          })}
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

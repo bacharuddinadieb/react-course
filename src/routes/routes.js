@@ -1,11 +1,14 @@
+import Home from '../pages/Home';
+import Detailkarya from '../pages/DetailKarya';
+
 const routes = [
   {
-    path: '/',
-    component: ProfileId,
+    path: '/karya/:karyaId',
+    component: Detailkarya,
   },
   {
-    path: '/karya/:karyaId',
-    component: ProfileId,
+    path: '/',
+    component: Home,
   },
 ];
 
