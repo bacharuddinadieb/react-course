@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 import './style/style.css';
+import Navigation from './components/navigation';
 import JuraganKost from './assets/img/03-Home v3.png';
 import JSCO from './assets/img/1-Home.png';
 import Clear from './assets/img/Screenshot 2020-10-10 143907.png';
 // eslint-disable-next-line max-len
 import Chevalier from './assets/img/screencapture-file-home-matohdev-Documents-Code-Soal-Cheva-client-index-html-2020-06-10-12_07_28 1.png';
-import Resume from './assets/pdf/Bacharuddin Adieb Pratama_CV.pdf';
 
 function App() {
   // deklarasi variable untuk menampung side navigation
@@ -45,25 +45,12 @@ function App() {
   });
   return (
     <div className="App">
-      <nav id="navigasi" ref={navigasi}>
-        <a href="#navigasi">Beranda</a>
-        <a href="#karya">Karya</a>
-        <a href="#tentang-saya">Tentang Saya</a>
-        <a href={Resume} target="_blank" rel="noreferrer">
-          Résumé
-        </a>
-      </nav>
-      <div className="side-navigation">
-        <a href="#navigasi">
-          <div className={`side-navigation_item ${sideNavigasi ? 'selected' : ''}`} />
-        </a>
-        <a href="#karya">
-          <div className={`side-navigation_item ${sideKarya ? 'selected' : ''}`} />
-        </a>
-        <a href="#tentang-saya">
-          <div className={`side-navigation_item ${sideTentangSaya ? 'selected' : ''}`} />
-        </a>
-      </div>
+      <Navigation
+        navigasi={navigasi}
+        sideNavigasi={sideNavigasi}
+        sideKarya={sideKarya}
+        sideTentangSaya={sideTentangSaya}
+      />
       <header>
         <div className="header_text-wrapper">
           <h1>
