@@ -8,7 +8,7 @@ const navigation = (props) => {
         <a href="#navigasi">Beranda</a>
         <a href="#karya">Karya</a>
         <a href="#tentang-saya">Tentang Saya</a>
-        <a href={Resume} target="_blank" rel="noreferrer">
+        <a href={Resume} target="_blank" rel="noopener noreferrer">
           Résumé
         </a>
       </nav>
