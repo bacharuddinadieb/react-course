@@ -25,18 +25,12 @@ function App() {
       setSideKarya(false);
       setSideTentangSaya(false);
     }
-    if (
-      -navigasi.current.getBoundingClientRect().top >=
-      karya.current.offsetTop - 350
-    ) {
+    if (-navigasi.current.getBoundingClientRect().top >= karya.current.offsetTop - 350) {
       setSideNavigasi(false);
       setSideKarya(true);
       setSideTentangSaya(false);
     }
-    if (
-      -navigasi.current.getBoundingClientRect().top >=
-      tentangSaya.current.offsetTop - 350
-    ) {
+    if (-navigasi.current.getBoundingClientRect().top >= tentangSaya.current.offsetTop - 350) {
       setSideNavigasi(false);
       setSideKarya(false);
       setSideTentangSaya(true);
@@ -61,21 +55,13 @@ function App() {
       </nav>
       <div className="side-navigation">
         <a href="#navigasi">
-          <div
-            className={`side-navigation_item ${sideNavigasi ? 'selected' : ''}`}
-          />
+          <div className={`side-navigation_item ${sideNavigasi ? 'selected' : ''}`} />
         </a>
         <a href="#karya">
-          <div
-            className={`side-navigation_item ${sideKarya ? 'selected' : ''}`}
-          />
+          <div className={`side-navigation_item ${sideKarya ? 'selected' : ''}`} />
         </a>
         <a href="#tentang-saya">
-          <div
-            className={`side-navigation_item ${
-              sideTentangSaya ? 'selected' : ''
-            }`}
-          />
+          <div className={`side-navigation_item ${sideTentangSaya ? 'selected' : ''}`} />
         </a>
       </div>
       <header>
@@ -83,9 +69,12 @@ function App() {
           <h1>
             Halo, nama saya
             <br />
-            Bacharuddin <span>Adieb</span> Pratama
-            <br />& saya seorang
-            <span>Front End Developper.</span>
+            Bacharuddin
+            <span> Adieb </span>
+            Pratama
+            <br />
+            &amp; saya seorang
+            <span> Front End Developper.</span>
           </h1>
         </div>
         <div className="header_scroll-wrapper" id="scroll-wrapper">
@@ -119,9 +108,7 @@ function App() {
                 <img src={Chevalier} alt="" />
               </div>
               <div className="card-text">
-                <div className="card-text-wrapper">
-                  Chevalier Recruitment Test
-                </div>
+                <div className="card-text-wrapper">Chevalier Recruitment Test</div>
                 <div className="card-tag-wrapper">
                   <div className="card-tag-item">
                     <span>Website Design</span>
@@ -170,9 +157,9 @@ function App() {
             <h1>hello@adieb.id</h1>
             <div className="line" />
             <p className="text-deskripsi">
-              Saya gemar sekali mendesain, mengembangkan website, mempelajari
-              teknologi terbaru mengenai website, serta mengajar. Sekarang ini
-              saya masih belajar di Universitas Telkom di bidang Informatika.
+              Saya gemar sekali mendesain, mengembangkan website, mempelajari teknologi terbaru
+              mengenai website, serta mengajar. Sekarang ini saya masih belajar di Universitas
+              Telkom di bidang Informatika.
               <br />
               Jangan sungkan untuk menghubungi saya
             </p>
