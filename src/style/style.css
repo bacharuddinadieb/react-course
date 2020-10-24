@@ -27,6 +27,15 @@ nav {
   align-items: flex-end;
 }
 
+nav#navigasi-detail-karya {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+nav#navigasi-detail-karya > a {
+  margin-left: 0;
+}
+
 nav > a {
   font-size: 1.25em;
   font-family: 'Rubik', sans-serif;
@@ -138,8 +147,7 @@ section > h1 {
   box-sizing: border-box;
   overflow: hidden;
   box-shadow: 0 -2px 16px #00000020;
-  transition: box-shadow 200ms cubic-bezier(0.215, 0.61, 0.355, 1),
-    transform 200ms ease;
+  transition: box-shadow 200ms cubic-bezier(0.215, 0.61, 0.355, 1), transform 200ms ease;
 }
 
 .card-item:hover {
@@ -275,6 +283,18 @@ section > h1 {
 
 .tentang-wrapper > .image-wrapper.hidden-desktop {
   display: none;
+}
+
+.detail-karya-teks > p {
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.detail-karya-image {
+  box-sizing: border-box;
+  padding: 10%;
 }
 
 @media screen and (max-width: 768px) {
