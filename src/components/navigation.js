@@ -2,9 +2,11 @@ import React from 'react';
 import Resume from '../assets/pdf/Bacharuddin Adieb Pratama_CV.pdf';
 
 const navigation = (props) => {
+  const { navigasi, sideNavigasi, sideKarya, sideTentangSaya } = props;
+
   return (
     <>
-      <nav id="navigasi" ref={props.navigasi}>
+      <nav id="navigasi" ref={navigasi}>
         <a href="#navigasi">Beranda</a>
         <a href="#karya">Karya</a>
         <a href="#tentang-saya">Tentang Saya</a>
@@ -14,13 +16,13 @@ const navigation = (props) => {
       </nav>
       <div className="side-navigation">
         <a href="#navigasi">
-          <div className={`side-navigation_item ${props.sideNavigasi ? 'selected' : ''}`} />
+          <div className={`side-navigation_item ${sideNavigasi ? 'selected' : ''}`} />
         </a>
         <a href="#karya">
-          <div className={`side-navigation_item ${props.sideKarya ? 'selected' : ''}`} />
+          <div className={`side-navigation_item ${sideKarya ? 'selected' : ''}`} />
         </a>
         <a href="#tentang-saya">
-          <div className={`side-navigation_item ${props.sideTentangSaya ? 'selected' : ''}`} />
+          <div className={`side-navigation_item ${sideTentangSaya ? 'selected' : ''}`} />
         </a>
       </div>
     </>

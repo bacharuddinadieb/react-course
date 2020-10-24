@@ -1,8 +1,10 @@
 import React from 'react';
 
 const footer = (props) => {
+  const { tentangSaya } = props;
+
   return (
-    <section className="tentang-saya" id="tentang-saya" ref={props.tentangSaya}>
+    <section className="tentang-saya" id="tentang-saya" ref={tentangSaya}>
       <h1>Katakan Haloo...</h1>
       <div className="tentang-wrapper">
         <div className="image-wrapper hidden-desktop" />
