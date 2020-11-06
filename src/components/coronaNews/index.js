@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import app from '../../services/firebase';
+import Cards from '../cards';
 import 'firebase/database';
+import './style.css';
 
 const CoronaNews = () => {
   const [news, setNews] = useState([]);
@@ -22,6 +24,24 @@ const CoronaNews = () => {
     <div>
       <h2>data corona</h2>
       {isLoading ? <p>loading</p> : <p>data</p>}
+      {/* <p>{JSON.stringify(news)}</p> */}
+      <div className="news-wrapper corona__news-wrapper">
+        <Cards>
+          <h1>wuuuh</h1>
+        </Cards>
+        <Cards>
+          <h1>wuuuh</h1>
+        </Cards>
+        <Cards>
+          <h1>wuuuh</h1>
+        </Cards>
+        <Cards>
+          <h1>wuuuh</h1>
+        </Cards>
+        <Cards>
+          <h1>wuuuh</h1>
+        </Cards>
+      </div>
     </div>
   );
 };

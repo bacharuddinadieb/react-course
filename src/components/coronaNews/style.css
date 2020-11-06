@@ -1,0 +1,32 @@
+.news-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.corona__news-wrapper {
+  margin: 0 5%;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 500px) {
+  .news-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  .news-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .news-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
