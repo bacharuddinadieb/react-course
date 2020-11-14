@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 import app from '../../services/firebase';
 import Cards from '../cards';
 import 'firebase/database';
@@ -24,14 +25,38 @@ const CoronaNews = () => {
       setIsLoading(false);
     });
   }, []);
-
-  console.log(news);
   return (
     <div>
       <h2>data corona</h2>
-      {isLoading ? <p>loading</p> : <p>data</p>}
-      {/* <p>{JSON.stringify(news)}</p> */}
       <div className="corona__news-wrapper">
+        <div
+          className={`corona__news-skeleton-wrapper ${
+            isLoading ? '' : 'hidden'
+          }`}
+        >
+          {[...Array(8)].map(() => {
+            const panjangNews = Math.floor(Math.random() * (5 - 2) + 2);
+            return (
+              <div>
+                <h1 style={{ marginTop: '2em', maxWidth: '40%' }}>
+                  <Skeleton />
+                </h1>
+                <div className="news-wrapper">
+                  {[...Array(panjangNews)].map(() => {
+                    return (
+                      <Cards style={{ fontSize: 18, lineHeight: 1.5 }}>
+                        <h1>
+                          <Skeleton />
+                        </h1>
+                        <Skeleton count={5} />
+                      </Cards>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
         {news.map((newsItem) => {
           return (
             <div>
