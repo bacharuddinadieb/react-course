@@ -32,7 +32,7 @@ const Produk = () => {
       <div className="produk-wrapper">
         {dataProduk.map((produk) => {
           return (
-            <Cards style={{ fontSize: 18, lineHeight: 1.5 }}>
+            <Cards style={{ fontSize: 18, lineHeight: 1.5 }} key={[produk.id]}>
               <h1>{produk.description}</h1>
               <div className="diskon-wrapper">
                 <div className="diskon-wrapper__percentage">
