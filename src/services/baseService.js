@@ -23,10 +23,7 @@ const createAxiosInterceptor = (url) => {
       return response.data;
     },
     (error) => {
-      if (error.response.status === 401) {
-        window.location.replace('/');
-      }
-      return Promise.reject(error);
+      return Promise.reject(error.response);
     }
   );
 

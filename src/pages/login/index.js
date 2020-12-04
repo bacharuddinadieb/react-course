@@ -23,6 +23,7 @@ const Login = () => {
         setCookie('token', JSON.stringify(cookieToken), 10000);
       })
       .catch((err) => {
+        alert(err.data.message);
         console.log(err);
       })
       .finally(() => {
