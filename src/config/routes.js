@@ -48,7 +48,7 @@ const routes = [
   {
     path: '/produk',
     component: Produk,
-    isPublic: true,
+    isPublic: false,
   },
   {
     path: '/',
