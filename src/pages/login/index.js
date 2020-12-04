@@ -21,6 +21,7 @@ const Login = () => {
         };
         setCookie('userData', JSON.stringify(cookieUser), 10000);
         setCookie('token', JSON.stringify(cookieToken), 10000);
+        window.location.replace('/produk');
       })
       .catch((err) => {
         alert(err.data.message);
