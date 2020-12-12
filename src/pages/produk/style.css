@@ -4,6 +4,29 @@
   margin-bottom: 5vh;
 }
 
+.main-produk-wrapper input {
+  height: 36px;
+  padding: 6px;
+  padding-left: 12px;
+  font-size: 1em;
+  border-radius: 100px;
+  border: 2px solid grey;
+  box-sizing: border-box;
+}
+
+.main-produk-wrapper input:focus {
+  outline: none;
+  border: 2px solid green;
+}
+
+.button-pagination {
+  box-sizing: border-box;
+  height: 36px;
+  width: 36px;
+  padding: 6px;
+  border-radius: 100px;
+}
+
 .cari-produk-wrapper {
   margin: 2.5vh 0;
   display: flex;

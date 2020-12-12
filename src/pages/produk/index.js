@@ -73,11 +73,17 @@ const Produk = () => {
               }}
             />
           </label>
-          <input type="submit" value="Cari Produk" disabled={isLoading} />
+          <input
+            className="submit-cari"
+            type="submit"
+            value="Cari Produk"
+            disabled={isLoading}
+          />
         </form>
         <div className="pagination-wrapper">
           <button
             type="button"
+            className="button-pagination"
             onClick={() => {
               setPaginationCounter(paginationCounter - 1);
               onSearchProduk();
@@ -99,6 +105,7 @@ const Produk = () => {
           />
           <button
             type="button"
+            className="button-pagination"
             onClick={() => {
               setPaginationCounter(paginationCounter + 1);
               onSearchProduk();
