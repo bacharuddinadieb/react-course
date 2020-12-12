@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { authService } from '../../services';
 import Cards from '../../components/cards/index';
+import { imageNotfound } from '../../assets';
 import './style.css';
 
 const Produk = () => {
@@ -10,8 +11,8 @@ const Produk = () => {
 
   const textCutter = (text) => {
     let textFinal = text;
-    if (textFinal.length >= 15) {
-      textFinal = text.replace(/^(.{15}[^\s]*).*/, '$1') + ' .....';
+    if (textFinal.length >= 35) {
+      textFinal = text.replace(/^(.{35}[^\s]*).*/, '$1') + ' .....';
     }
     return textFinal;
   };
@@ -77,7 +78,23 @@ const Produk = () => {
         {dataProduk.map((produk) => {
           return (
             <Cards style={{ fontSize: 18, lineHeight: 1.5 }} key={[produk.id]}>
-              <h2>{textCutter(produk.description)}</h2>
+              {/* {
+              if(produk.variants[0].images[0].product_url){
+                return(<img src={}>)
+              }
+              } */}
+              {produk.variants[0].images[0].product_url ? (
+                <img
+                  src={produk.variants[0].images[0].product_url}
+                  alt="gambar"
+                />
+              ) : (
+                <img src={imageNotfound} alt="gambar" />
+              )}
+              <h2 className="produk__header">
+                {textCutter(produk.description)}
+              </h2>
+              {/* <h2 className="produk__header">{produk.description}</h2> */}
               <div className="diskon-wrapper">
                 <div className="diskon-wrapper__percentage">
                   {produk.display_promo_price_percentage}

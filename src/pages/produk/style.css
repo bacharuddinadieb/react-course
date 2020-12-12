@@ -13,6 +13,11 @@
   text-decoration: none;
 }
 
+.produk__header {
+  height: 64px;
+  overflow: hidden;
+}
+
 .diskon-wrapper {
   display: flex;
   align-items: center;
