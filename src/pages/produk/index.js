@@ -8,6 +8,14 @@ const Produk = () => {
   const [searchProduk, setSearchProduk] = useState('');
   const [dataProduk, setDataProduk] = useState([]);
 
+  const textCutter = (text) => {
+    let textFinal = text;
+    if (textFinal.length >= 15) {
+      textFinal = text.replace(/^(.{15}[^\s]*).*/, '$1') + ' .....';
+    }
+    return textFinal;
+  };
+
   const getProduk = () => {
     authService
       .getProduk('bango')
@@ -44,7 +52,7 @@ const Produk = () => {
   }, []);
 
   return (
-    <div>
+    <div className="main-produk-wrapper">
       <h1>Halaman Produk</h1>
       <div>
         <form
@@ -69,7 +77,7 @@ const Produk = () => {
         {dataProduk.map((produk) => {
           return (
             <Cards style={{ fontSize: 18, lineHeight: 1.5 }} key={[produk.id]}>
-              <h1>{produk.description}</h1>
+              <h2>{textCutter(produk.description)}</h2>
               <div className="diskon-wrapper">
                 <div className="diskon-wrapper__percentage">
                   {produk.display_promo_price_percentage}
