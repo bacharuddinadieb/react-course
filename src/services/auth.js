@@ -5,11 +5,11 @@ const login = (username, password) => {
   return BaseService.post(API.LOGIN, { username, password });
 };
 
-const getProduk = (namaProduk) => {
+const getProduk = (namaProduk, offsetProduk) => {
   return BaseService.get(API.PRODUK, {
     params: {
       limit: 10,
-      offset: 0,
+      offset: offsetProduk,
       search: namaProduk,
     },
   });

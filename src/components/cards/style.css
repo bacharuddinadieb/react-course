@@ -19,3 +19,24 @@
   transform: translateY(-0.5%);
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
 }
+
+.swal2-popup .diskon-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.swal2-popup .diskon-wrapper__percentage {
+  padding: 0.3rem 0.5rem;
+  color: rgb(255, 92, 132);
+  background-color: rgb(255, 234, 239);
+  border-radius: 8px;
+}
+
+.swal2-popup .harga-produk {
+  margin-left: 0.5rem;
+  text-decoration: line-through;
+}
+
+.swal2-popup .harga-produk-terdiskon {
+  margin-top: 0;
+}

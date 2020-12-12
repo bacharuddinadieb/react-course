@@ -1,6 +1,19 @@
 .main-produk-wrapper {
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 5vh;
+}
+
+.cari-produk-wrapper {
+  margin: 2.5vh 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-wrapper input {
+  width: 50px;
+  text-align: center;
+  padding-left: 12px;
 }
 
 .produk-wrapper {

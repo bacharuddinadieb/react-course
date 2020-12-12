@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Skeleton from 'react-loading-skeleton';
 import { authService } from '../../services';
 import Cards from '../../components/cards/index';
-import { imageNotfound } from '../../assets';
+import { imageNotfound, image } from '../../assets';
 import './style.css';
 
 const Produk = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [paginationCounter, setPaginationCounter] = useState(0);
   const [searchProduk, setSearchProduk] = useState('');
   const [dataProduk, setDataProduk] = useState([]);
 
@@ -19,7 +21,7 @@ const Produk = () => {
 
   const getProduk = () => {
     authService
-      .getProduk('bango')
+      .getProduk('bango', paginationCounter)
       .then((res) => {
         console.log(res);
         setDataProduk(res.data);
@@ -35,7 +37,7 @@ const Produk = () => {
   const onSearchProduk = () => {
     setIsLoading(true);
     authService
-      .getProduk(searchProduk)
+      .getProduk(searchProduk, paginationCounter)
       .then((res) => {
         console.log(res);
         setDataProduk(res.data);
@@ -55,7 +57,7 @@ const Produk = () => {
   return (
     <div className="main-produk-wrapper">
       <h1>Halaman Produk</h1>
-      <div>
+      <div className="cari-produk-wrapper">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -73,11 +75,67 @@ const Produk = () => {
           </label>
           <input type="submit" value="Cari Produk" disabled={isLoading} />
         </form>
+        <div className="pagination-wrapper">
+          <button
+            type="button"
+            onClick={() => {
+              setPaginationCounter(paginationCounter - 1);
+              onSearchProduk();
+            }}
+            disabled={paginationCounter === 0 || isLoading}
+          >
+            {'<'}
+          </button>
+          <input
+            value={paginationCounter}
+            type="number"
+            onChange={(e) => {
+              if (e.target.value >= 0) {
+                setPaginationCounter(e.target.value);
+                onSearchProduk();
+              }
+            }}
+            disabled={isLoading}
+          />
+          <button
+            type="button"
+            onClick={() => {
+              setPaginationCounter(paginationCounter + 1);
+              onSearchProduk();
+            }}
+            disabled={isLoading}
+          >
+            {'>'}
+          </button>
+        </div>
+      </div>
+      <div
+        className="produk-wrapper"
+        style={{ display: !isLoading ? 'none' : '' }}
+      >
+        {Array.from(Array(10), (e, i) => {
+          return (
+            <Cards style={{ fontSize: 18, lineHeight: 1.5 }} key={i}>
+              <img style={{ width: '100%' }} src={image} alt="gambar" />
+              <h1>
+                <Skeleton />
+              </h1>
+              <p>
+                <Skeleton />
+              </p>
+              <Skeleton count={4} />
+            </Cards>
+          );
+        })}
       </div>
       <div className="produk-wrapper">
         {dataProduk.map((produk) => {
           return (
-            <Cards style={{ fontSize: 18, lineHeight: 1.5 }} key={[produk.id]}>
+            <Cards
+              style={{ fontSize: 18, lineHeight: 1.5 }}
+              key={[produk.id]}
+              dataProduk={produk}
+            >
               {/* {
               if(produk.variants[0].images[0].product_url){
                 return(<img src={}>)
