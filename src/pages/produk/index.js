@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
-import { authService } from '../../services';
+import { authService, produk } from '../../services';
 import Cards from '../../components/cards/index';
 import { imageNotfound, image } from '../../assets';
 import './style.css';
@@ -20,7 +20,7 @@ const Produk = () => {
   };
 
   const getProduk = () => {
-    authService
+    produk
       .getProduk('bango', paginationCounter)
       .then((res) => {
         console.log(res);
@@ -36,7 +36,7 @@ const Produk = () => {
 
   const onSearchProduk = () => {
     setIsLoading(true);
-    authService
+    produk
       .getProduk(searchProduk, paginationCounter)
       .then((res) => {
         console.log(res);
