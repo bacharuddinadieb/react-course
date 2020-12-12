@@ -32,7 +32,6 @@ const Produk = () => {
         setDataProduk(res.data);
       })
       .catch((err) => {
-        alert(err.data.message);
         console.log(err);
       })
       .finally(() => {

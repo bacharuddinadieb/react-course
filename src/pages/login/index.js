@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import { setCookie } from '../../utils/cookie';
 import { authService } from '../../services';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
   const [isLoginLoading, setLoginLoading] = useState(false);
+
+  const swallWrapper = withReactContent(Swal);
 
   const onSubmitLogin = () => {
     setLoginLoading(true);
@@ -24,8 +27,13 @@ const Login = () => {
         window.location.replace('/produk');
       })
       .catch((err) => {
-        alert(err.data.message);
+        // alert(err.data.message);
         console.log(err);
+        swallWrapper.fire({
+          icon: 'error',
+          title: err.data.message,
+          text: 'Silahkan cek kembali username dan password anda',
+        });
       })
       .finally(() => {
         setLoginLoading(false);
