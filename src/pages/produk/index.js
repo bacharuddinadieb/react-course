@@ -5,16 +5,34 @@ import './style.css';
 
 const Produk = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [searchProduk, setSearchProduk] = useState('');
   const [dataProduk, setDataProduk] = useState([]);
 
   const getProduk = () => {
     authService
-      .getProduk()
+      .getProduk('bango')
       .then((res) => {
         console.log(res);
         setDataProduk(res.data);
       })
       .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const onSearchProduk = () => {
+    setIsLoading(true);
+    authService
+      .getProduk(searchProduk)
+      .then((res) => {
+        console.log(res);
+        setDataProduk(res.data);
+      })
+      .catch((err) => {
+        alert(err.data.message);
         console.log(err);
       })
       .finally(() => {
@@ -28,7 +46,26 @@ const Produk = () => {
 
   return (
     <div>
-      <h1>Produk Page!</h1>
+      <h1>Halaman Produk</h1>
+      <div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            onSearchProduk();
+          }}
+        >
+          <label htmlFor="searchProduk">
+            <input
+              type="text"
+              value={searchProduk}
+              onChange={(e) => {
+                setSearchProduk(e.target.value);
+              }}
+            />
+          </label>
+          <input type="submit" value="Cari Produk" disabled={isLoading} />
+        </form>
+      </div>
       <div className="produk-wrapper">
         {dataProduk.map((produk) => {
           return (
